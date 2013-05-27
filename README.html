@@ -1,0 +1,103 @@
+<h1>ScalaCheatsheet</h1>
+
+<h1>Data structures</h1>
+
+<h2>Map</h2>
+
+<h3>Immutable map (default)</h3>
+
+<p>create a map</p>
+
+<ul>
+<li>val capitals = Map("Washington" -> "Olympia", "Massachusetts" -> "Boston", "California"
+    -> "Sacramento")</li>
+<li>val capitals = Map(("Washington", "Olympia"), ("Massachusetts", "Boston"), ("California" ,"Sacramento"))</li>
+</ul>
+
+<p>access keys</p>
+
+<ul>
+<li>capitals("Washington") // returns "Olympia" or throws exception if key doesn't exist</li>
+<li>capitals.getOrElse("Oregon", "Portland") // returns the default if key doesn't exist</li>
+</ul>
+
+<p>check key existence</p>
+
+<ul>
+<li>capitals.contains("Washington")</li>
+</ul>
+
+<p>add keys</p>
+
+<ul>
+<li>val newCapitals = capitals + ("Colorado" -> "Denver", "Ohio" -> "Columbus")</li>
+</ul>
+
+<p>remove keys</p>
+
+<ul>
+<li>val newCapitals = capitals - ("Washington")</li>
+</ul>
+
+<p>iterate over maps</p>
+
+<ul>
+<li>for ((key, value) &lt;- map) process key and value</li>
+</ul>
+
+<p>get all keys or values</p>
+
+<ul>
+<li>capitals.keys // returns Iterable</li>
+<li>capitals.keySet // returns an immutable set</li>
+<li>capitals.values // returns Iterable</li>
+</ul>
+
+<h3>Mutable map</h3>
+
+<p>create a map</p>
+
+<ul>
+<li>val capitals = scala.collection.mutable.Map("Washington" -> "Olympia",
+    "Massachusetts" -> "Boston", "California" -> "Sacramento")</li>
+</ul>
+
+<p>update keys or add new keys</p>
+
+<ul>
+<li>capitals("Washington") = "DC"</li>
+<li>capitals += ("Colorado" -> "Denver", "Ohio" -> "Columbus") // add multiple keys</li>
+</ul>
+
+<p>remove keys</p>
+
+<ul>
+<li>capitals -= "Colorado"</li>
+</ul>
+
+<h3>Sorted map</h3>
+
+<p>create a map</p>
+
+<ul>
+<li>val capitals = scala.collection.immutable.SortedMap("Washington" -> "Olympia",
+    "Massachusetts" -> "Boston", "California" -> "Sacramento")</li>
+</ul>
+
+<h3>map in insertion order</h3>
+
+<p>create a map</p>
+
+<ul>
+<li>val capitals = scala.collection.mutable.LinkedHashMap("Washington" -> "Olympia",
+    "Massachusetts" -> "Boston", "California" -> "Sacramento")</li>
+</ul>
+
+<h2>Tuples</h2>
+
+<ul>
+<li>val t = ("hello", 3.14, "world", true) // type: Tuple4[String, Double, String, Boolean]</li>
+<li>t._1 // returns "hello", 1-based index</li>
+<li>val (str1, f, str2, b) = t // pattern matching</li>
+<li>Array(1, 2, 3, 4).partition(_ > 2) // returns (Array(3,4), Array(1,2))</li>
+</ul>
